@@ -1,8 +1,3 @@
-import test from './Test';
-import Test2 from './Test2';
+import CoreController from './core/CoreController';
 
-test();
-
-const t1 = new Test2();
-
-t1.fire();
+const coreController = new CoreController();

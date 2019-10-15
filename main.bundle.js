@@ -86,27 +86,15 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./Test.js":
-/*!*****************!*\
-  !*** ./Test.js ***!
-  \*****************/
+/***/ "./core/CoreController.js":
+/*!********************************!*\
+  !*** ./core/CoreController.js ***!
+  \********************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\nvar test = function test() {\n  console.log('Hello WebPack');\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (test);\n\n//# sourceURL=webpack:///./Test.js?");
-
-/***/ }),
-
-/***/ "./Test2.js":
-/*!******************!*\
-  !*** ./Test2.js ***!
-  \******************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }\n\nvar Test2 = function Test2() {\n  _classCallCheck(this, Test2);\n\n  _defineProperty(this, \"fire\", function () {\n    console.log('fired');\n  });\n\n  console.log('constructor test2');\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Test2);\n\n//# sourceURL=webpack:///./Test2.js?");
+eval("__webpack_require__.r(__webpack_exports__);\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nvar CoreController = function CoreController() {\n  _classCallCheck(this, CoreController);\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (CoreController);\n\n//# sourceURL=webpack:///./core/CoreController.js?");
 
 /***/ }),
 
@@ -118,7 +106,7 @@ eval("__webpack_require__.r(__webpack_exports__);\nfunction _classCallCheck(inst
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Test__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Test */ \"./Test.js\");\n/* harmony import */ var _Test2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Test2 */ \"./Test2.js\");\n\n\nObject(_Test__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\nvar t1 = new _Test2__WEBPACK_IMPORTED_MODULE_1__[\"default\"]();\nt1.fire();\n\n//# sourceURL=webpack:///./index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _core_CoreController__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core/CoreController */ \"./core/CoreController.js\");\n\nvar coreController = new _core_CoreController__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ })
 
