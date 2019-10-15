@@ -39,11 +39,11 @@ class MenuView extends EventEmitter {
     }
 
     stickersAction = () => {
-
+        this.actionEmiter('stickers');
     }
 
     textAction = () => {
-
+        this.actionEmiter('text');
     }
 
     actionEmiter = (actionName) => {
