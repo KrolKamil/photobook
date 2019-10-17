@@ -1,6 +1,7 @@
+import {EventEmitter} from 'events';
 import ImagesView from './ImagesView';
 
-class ImagesController{
+class ImagesController extends EventEmitter{
     constructor(){
         this.imagesView = new ImagesView();
         this.active = false;

@@ -1,10 +1,17 @@
+import {EventEmitter} from 'events';
 import FileController from './file/FileController';
 import ImagesController from './images/ImagesController';
 
-class ActionsController{
+class ActionsController extends EventEmitter{
     constructor(){
+        super();
         this.fileController = new FileController();
         this.imagesController = new ImagesController();
+        this.init();
+    }
+
+    init = () => {
+        this.activateAction('images');
     }
 
     activateAction = (actionName) => {
