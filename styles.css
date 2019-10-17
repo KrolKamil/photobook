@@ -50,3 +50,14 @@ body{
     background-color: darkslategray;
 
 }
+
+.images-importer {
+    display: none;
+}
+
+.import-images-button {
+    width: 60px;
+    height: 30px;
+    background-color: #271bd3;
+    cursor: pointer;
+}

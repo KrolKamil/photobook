@@ -20,7 +20,7 @@ class ImagesView {
         const stringElements = `
         <div class="images-container">
             <input type="file" class="images-importer">
-            <div class="import-images-button"></div>
+            <div class="import-images-button">Zaimportuj Obrazy</div>
             <div class="images-container"></div>
         </div>
         `;
