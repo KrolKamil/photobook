@@ -1,7 +1,9 @@
+import {EventEmitter} from 'events';
 import MenuView from './MenuView';
 
-class MenuController{
+class MenuController extends EventEmitter {
     constructor(){
+        super();
         this.menuView = new MenuView();
         this.init();
     }

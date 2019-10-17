@@ -12,7 +12,7 @@ class OptionsController{
         this.eventHandler();
     }
 
-    evnetHandler = () => {
+    eventHandler = () => {
         this.menuController.on('menuSelected', (status) => {
             this.actionsController.activateAction(status);
         });

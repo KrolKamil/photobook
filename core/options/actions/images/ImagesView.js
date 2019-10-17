@@ -13,7 +13,7 @@ class ImagesView {
     generateDOM = () => {
         const parser = new DOMParser();
         const stringDOM = parser.parseFromString(this.getStringElements(), 'text/html');
-        this.container = stringDOM.querySelector('images-container');
+        this.container = stringDOM.querySelector('.images-container');
     }
 
     getStringElements = () => {
@@ -29,11 +29,11 @@ class ImagesView {
     }
 
     activate = () => {
-        this.actionsContainer.appendChildren(this.container);
+        actionsContainer.appendChild(this.container);
     }
 
     disable = () => {
-        this.actionsContainer.remove();
+        actionsContainer.remove();
     }
 }
 

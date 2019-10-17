@@ -1,4 +1,3 @@
-// import * as events from 'events';
 import {EventEmitter} from 'events';
 
 class MenuView extends EventEmitter {

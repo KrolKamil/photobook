@@ -7,13 +7,14 @@ class ImagesController{
     }
 
     activate = () => {
-        if(this.activate === false){
+        if(this.active === false){
+            ('hi');
             this.imagesView.activate();
         }
     }
 
     disable = () => {
-        if(this.activate === true){
+        if(this.active === true){
             this.imagesView.disable();
         }
     }
