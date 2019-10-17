@@ -31,22 +31,22 @@ class MenuView extends EventEmitter {
     }
 
     fileAction = () => {
-        this.actionEmiter('file');
+        this.eventHandler('file');
     }
 
     imagesAction = () => {
-        this.actionEmiter('images');
+        this.eventHandler('images');
     }
 
     stickersAction = () => {
-        this.actionEmiter('stickers');
+        this.eventHandler('stickers');
     }
 
     textAction = () => {
-        this.actionEmiter('text');
+        this.eventHandler('text');
     }
 
-    actionEmiter = (actionName) => {
+    eventHandler = (actionName) => {
         this.emit('menuSelected', actionName);
     } 
 

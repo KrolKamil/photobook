@@ -7,11 +7,13 @@ class MenuController{
     }
 
     init = () => {
-        this.setViewListeners();
+        this.eventHandler();
     }
 
-    setViewListeners = () => {
-        this.menuView.on('menuAction', (action) => console.log(action));
+    eventHandler = () => {
+        this.menuView.on('menuSelected', (action) => {
+            this.emit('menuSelected', action);
+        });
     }
 }
 

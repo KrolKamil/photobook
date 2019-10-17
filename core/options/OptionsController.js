@@ -5,6 +5,17 @@ class OptionsController{
     constructor(){
         this.actionsController = new ActionsController();
         this.menuController = new MenuController();
+        this.init();
+    }
+
+    init = () => {
+        this.eventHandler();
+    }
+
+    evnetHandler = () => {
+        this.menuController.on('menuSelected', (status) => {
+            this.actionsController.activateAction(status);
+        });
     }
 
 }
