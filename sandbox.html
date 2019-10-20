@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sandbox</title>
+    <style>
+        body{
+            background-color: grey;
+        }
+    </style>
+</head>
+<body>
+
+    <input type='file' id="imgInp" multiple />
+    <img id="blah" src="#" alt="your image" />
+
+    <script>
+        const inputField = document.querySelector('#imgInp');
+
+
+        const createImage = (e) => {
+            const image = document.createElement('img');
+            image.setAttribute('src', e.target.result);
+            image.style.width = '100px';
+            image.style.height = '200px';
+            document.body.appendChild(image);
+        }
+
+        const showImages = () => {
+            // console.log(inputField.files);
+            Array.from(inputField.files).forEach(file => {
+                const render = new FileReader();
+                render.addEventListener('load', createImage);
+                render.readAsDataURL(file)
+                console.log(file);
+            });
+        }
+
+
+
+        inputField.addEventListener('change', showImages);
+    </script>
+</body>
+</html>

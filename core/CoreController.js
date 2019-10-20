@@ -1,21 +1,21 @@
 import OptionsController from './options/OptionsController';
 import ContentController from './content/ContentController';
 
-class CoreController{
-    constructor(){
-        this.optionsController = new OptionsController();
-        this.contentController = new ContentController();
-        this.init();
-    }
+class CoreController {
+  constructor () {
+    this.optionsController = new OptionsController();
+    this.contentController = new ContentController();
+    this.init();
+  }
 
     init = () => {
-        this.eventHandler();
+      this.eventHandler();
     }
 
     eventHandler = () => {
-        // this.optionsController.on('menuSelected', (status) => {
-        //     this.option.activateAction(status);
-        // });
+      // this.optionsController.on('menuSelected', (status) => {
+      //     this.option.activateAction(status);
+      // });
     }
 }
 
