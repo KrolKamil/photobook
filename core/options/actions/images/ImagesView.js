@@ -1,31 +1,52 @@
+import { EventEmitter } from 'events';
 import actionsContainer from '../actionsContainer.js';
+import ImagesViewDOM from './ImagesViewDOM';
 
-class ImagesView {
+class ImagesView extends EventEmitter {
   constructor () {
+    super();
+    this.imagesViewDOM = new ImagesViewDOM();
     this.container = null;
     this.init();
   }
 
     init = () => {
       this.generateDOM();
+      this.addInputFileListener();
     }
 
     generateDOM = () => {
-      const parser = new DOMParser();
-      const stringDOM = parser.parseFromString(this.getStringElements(), 'text/html');
-      this.container = stringDOM.querySelector('.images-container');
+      this.container = this.imagesViewDOM.generateElements();
     }
 
-    getStringElements = () => {
-      const stringElements = `
-        <div class="images-container">
-            <label for="images-importer" class="import-images-button">Zaimportuj Obrazy</label>
-            <input type="file" id="images-importer" class="images-importer" name="images-importer" multiple>
-            <div class="images"></div>
-        </div>
-        `;
+    addInputFileListener = () => {
+      const input = this.container.querySelector('.images-importer');
+      input.addEventListener('change', this.createImages);
+    }
 
-      return stringElements;
+    createImages = () => {
+      const input = this.container.querySelector('.images-importer');
+      Array.from(input.files).forEach(file => {
+        const render = new FileReader();
+        render.addEventListener('load', this.createImageDOMAndAddItToContainer);
+        render.readAsDataURL(file);
+      });
+    }
+
+    createImageDOMAndAddItToContainer = (e) => {
+      const image = this.imagesViewDOM.createImageDOM(e.target.result);
+      const imagesContainer = this.container.querySelector('.images');
+      const imagesContainerDestroyButton = image.querySelector('.image-container-delete');
+      imagesContainer.addEventListener('click', this.userClickedOnImage);
+      imagesContainerDestroyButton.addEventListener('click', () => {
+        // remove img form dom
+        imagesContainer.removeChild(image);
+      });
+      imagesContainer.appendChild(image);
+    }
+
+    userClickedOnImage = (e) => {
+      this.emit('imageClicked', e.target.src);
     }
 
     activate = () => {

@@ -51,6 +51,26 @@ body{
 
 }
 
+.images {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.image-container{
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.image-container-delete{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    right: 0px;
+    top: 0px;
+}
+
 .images-importer {
     display: none;
 }
