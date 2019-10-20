@@ -10,13 +10,14 @@ class ImagesController extends EventEmitter{
 
     activate = () => {
         if(this.active === false){
-            ('hi');
+            this.activate = true;
             this.imagesView.activate();
         }
     }
 
     disable = () => {
         if(this.active === true){
+            this.activate = false;
             this.imagesView.disable();
         }
     }
