@@ -1,5 +1,5 @@
-class ContentController{
+class ContentController {
 
 }
 
-export default ContentController
+export default ContentController;

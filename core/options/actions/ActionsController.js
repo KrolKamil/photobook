@@ -1,35 +1,42 @@
-import {EventEmitter} from 'events';
+import { EventEmitter } from 'events';
 import FileController from './file/FileController';
 import ImagesController from './images/ImagesController';
 
-class ActionsController extends EventEmitter{
-    constructor(){
-        super();
-        this.fileController = new FileController();
-        this.imagesController = new ImagesController();
-        this.init();
-    }
+class ActionsController extends EventEmitter {
+  constructor () {
+    super();
+    this.fileController = new FileController();
+    this.imagesController = new ImagesController();
+    this.init();
+  }
 
     init = () => {
-        this.activateAction('images');
+      this.eventsHandler();
+      this.activateAction('images');
+    }
+
+    eventsHandler = () => {
+      this.imagesController.on('imageClicked', (img) => {
+        this.emit('imageClicked', img);
+      });
     }
 
     activateAction = (actionName) => {
-        switch(actionName){
-            case 'file':
-                this.fileController.activate();
-                break;
-            case 'images':
-                this.imagesController.activate();
-                break;
-            default:
-                console.log('o qurewaaa :======3')
-        }
+      switch (actionName) {
+        case 'file':
+          this.fileController.activate();
+          break;
+        case 'images':
+          this.imagesController.activate();
+          break;
+        default:
+          console.log('o qurewaaa :======3');
+      }
     }
 
     disableAllActions = () => {
-        this.fileController.disable();
-        this.imagesController.disable();
+      this.fileController.disable();
+      this.imagesController.disable();
     }
 }
 

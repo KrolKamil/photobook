@@ -1,8 +1,10 @@
+import { EventEmitter } from 'events';
 import ActionsController from './actions/ActionsController';
 import MenuController from './menu/MenuController';
 
-class OptionsController {
+class OptionsController extends EventEmitter {
   constructor () {
+    super();
     this.actionsController = new ActionsController();
     this.menuController = new MenuController();
     this.init();

@@ -6,6 +6,17 @@ class ImagesController extends EventEmitter {
     super();
     this.imagesView = new ImagesView();
     this.active = false;
+    this.init();
+  }
+
+  init = () => {
+    this.eventsHandler();
+  }
+
+  eventsHandler = () => {
+    this.imagesView.on('imageClicked', (img) => {
+      console.log(img);
+    });
   }
 
     activate = () => {
