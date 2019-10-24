@@ -58,6 +58,7 @@ body{
 }
 
 .image-container{
+    cursor: pointer;
     position: relative;
     padding-bottom: 10px;
 }
@@ -86,6 +87,16 @@ body{
     position: relative;
 }
 
+.content .cards .cards-container{
+    width: 100%;
+    height: 100%;
+}
+
+.content .cards .cards-container .card{
+    width: 100%;
+    height: 100%;
+}
+
 .content .cards .navigation .nav {
     position: absolute;
     width: 30px;
@@ -100,4 +111,13 @@ body{
 
 .content .cards .navigation .nav.right{
     right: -50px;
+}
+
+.content .cards .card-number{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #34d835;
+    bottom: -42px;
+    right: 0;
 }

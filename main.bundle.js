@@ -106,7 +106,43 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var even
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nvar ContentController = function ContentController() {\n  _classCallCheck(this, ContentController);\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (ContentController);\n\n//# sourceURL=webpack:///./core/content/ContentController.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _cards_CardsController__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./cards/CardsController */ \"./core/content/cards/CardsController.js\");\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\n\n\nvar ContentController = function ContentController() {\n  _classCallCheck(this, ContentController);\n\n  this.cardsController = new _cards_CardsController__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (ContentController);\n\n//# sourceURL=webpack:///./core/content/ContentController.js?");
+
+/***/ }),
+
+/***/ "./core/content/cards/CardsController.js":
+/*!***********************************************!*\
+  !*** ./core/content/cards/CardsController.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _CardsView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CardsView */ \"./core/content/cards/CardsView.js\");\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\n\n\nvar CardsController = function CardsController() {\n  _classCallCheck(this, CardsController);\n\n  this.cardsView = new _CardsView__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (CardsController);\n\n//# sourceURL=webpack:///./core/content/cards/CardsController.js?");
+
+/***/ }),
+
+/***/ "./core/content/cards/CardsView.js":
+/*!*****************************************!*\
+  !*** ./core/content/cards/CardsView.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _CardsViewDOM__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CardsViewDOM */ \"./core/content/cards/CardsViewDOM.js\");\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }\n\n\n\nvar CardsView = function CardsView() {\n  var _this = this;\n\n  _classCallCheck(this, CardsView);\n\n  _defineProperty(this, \"init\", function () {\n    _this.amoutOfCards = 10;\n\n    _this.setContainer();\n\n    _this.createCards();\n\n    _this.showFirstCard();\n\n    _this.createNavigationHandler();\n\n    _this.showSelectedCardToUser();\n  });\n\n  _defineProperty(this, \"setContainer\", function () {\n    _this.container = document.querySelector('.cards');\n    _this.cardsContainer = document.querySelector('.cards-container');\n  });\n\n  _defineProperty(this, \"createCards\", function () {\n    _this.cards = _this.cardsViewDOM.generateCards(_this.amoutOfCards);\n  });\n\n  _defineProperty(this, \"showFirstCard\", function () {\n    _this.showCardOfIndex(0);\n  });\n\n  _defineProperty(this, \"showCardOfIndex\", function (index) {\n    if (index >= 0 && index < _this.amoutOfCards) {\n      _this.hideCard();\n\n      _this.cardIndex = index;\n\n      _this.cardsContainer.appendChild(_this.cards[index]);\n    }\n  });\n\n  _defineProperty(this, \"hideCard\", function () {\n    if (_this.cardsContainer.firstChild !== null) {\n      _this.cardsContainer.removeChild(_this.cards[_this.cardIndex]);\n    }\n  });\n\n  _defineProperty(this, \"createNavigationHandler\", function () {\n    var navLeft = _this.container.querySelector('.nav.left');\n\n    var navRight = _this.container.querySelector('.nav.right');\n\n    navLeft.addEventListener('click', _this.showPreviousCard);\n    navRight.addEventListener('click', _this.showNextCard);\n  });\n\n  _defineProperty(this, \"showPreviousCard\", function () {\n    var indexMinusOne = _this.cardIndex - 1;\n\n    _this.showCardOfIndex(indexMinusOne);\n\n    _this.showSelectedCardToUser();\n  });\n\n  _defineProperty(this, \"showNextCard\", function () {\n    var indexPlusOne = _this.cardIndex + 1;\n\n    _this.showCardOfIndex(indexPlusOne);\n\n    _this.showSelectedCardToUser();\n  });\n\n  _defineProperty(this, \"showSelectedCardToUser\", function () {\n    var numberContainer = _this.container.querySelector('.card-number .number');\n\n    var selectedCardIndex = _this.cardIndex + 1;\n    numberContainer.innerHTML = \"\".concat(selectedCardIndex, \"/\").concat(_this.amoutOfCards);\n  });\n\n  this.container = null;\n  this.cardsNumber = null;\n  this.cards = null;\n  this.amoutOfCards = 0;\n  this.cardIndex = 0;\n  this.cardsViewDOM = new _CardsViewDOM__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\n  this.init();\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (CardsView);\n\n//# sourceURL=webpack:///./core/content/cards/CardsView.js?");
+
+/***/ }),
+
+/***/ "./core/content/cards/CardsViewDOM.js":
+/*!********************************************!*\
+  !*** ./core/content/cards/CardsViewDOM.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }\n\nvar CardsViewDOM = function CardsViewDOM() {\n  var _this = this;\n\n  _classCallCheck(this, CardsViewDOM);\n\n  _defineProperty(this, \"generateCards\", function (amout) {\n    var cards = [];\n    var i = 0;\n\n    for (i; i < amout; i++) {\n      var card = _this.generateCardDOM(i);\n\n      cards.push(card);\n    }\n\n    return cards;\n  });\n\n  _defineProperty(this, \"generateCardDOM\", function (i) {\n    var card = document.createElement('div');\n    card.classList.add('card');\n    card.classList.add(\"index-\".concat(i));\n    return card;\n  });\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (CardsViewDOM);\n\n//# sourceURL=webpack:///./core/content/cards/CardsViewDOM.js?");
 
 /***/ }),
 

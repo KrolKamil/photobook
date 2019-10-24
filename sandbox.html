@@ -4,43 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sandbox</title>
+    <title>Document</title>
     <style>
+        .test{
+            width: 100px;
+            height: 100px;
+        }
+
+        .test.x1{
+            background: red;
+        }
+
+        .test.x2{
+            background: blue;
+        }
+
         body{
             background-color: grey;
         }
+
     </style>
 </head>
 <body>
-
-    <input type='file' id="imgInp" multiple />
-    <img id="blah" src="#" alt="your image" />
+    <div class="test x1"></div>
+    <div class="test x2"></div>    
 
     <script>
-        const inputField = document.querySelector('#imgInp');
 
+    const showEvent = (e) => {
+            console.log(e.target);
 
-        const createImage = (e) => {
-            const image = document.createElement('img');
-            image.setAttribute('src', e.target.result);
-            image.style.width = '100px';
-            image.style.height = '200px';
-            document.body.appendChild(image);
+            document.createElement('text');
+            
+            e.target.appendChild()
         }
 
-        const showImages = () => {
-            // console.log(inputField.files);
-            Array.from(inputField.files).forEach(file => {
-                const render = new FileReader();
-                render.addEventListener('load', createImage);
-                render.readAsDataURL(file)
-                console.log(file);
-            });
-        }
+        const x1 = document.querySelector('.test.x1');
+        const x2 = document.querySelector('.test.x2');
 
+        x1.addEventListener('click', showEvent);
+        x2.addEventListener('click', showEvent);
 
-
-        inputField.addEventListener('change', showImages);
     </script>
 </body>
 </html>
+
+
+
