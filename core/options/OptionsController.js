@@ -15,6 +15,14 @@ class OptionsController extends EventEmitter {
     }
 
     eventHandler = () => {
+      this.actionsController.on('createFile', () => {
+        this.emit('createFile');
+      });
+
+      this.actionsController.on('imageClicked', (img) => {
+        this.emit('imageClicked', img);
+      });
+
       this.menuController.on('menuSelected', (status) => {
         this.actionsController.activateAction(status);
       });

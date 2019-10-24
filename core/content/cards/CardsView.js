@@ -74,7 +74,7 @@ class CardsView {
     }
 
     getSelectedCardId = () => {
-      return this.selectedCardIndex();
+      return this.cardIndex;
     }
 }
 

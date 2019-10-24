@@ -15,7 +15,7 @@ class ImagesController extends EventEmitter {
 
   eventsHandler = () => {
     this.imagesView.on('imageClicked', (img) => {
-      console.log(img);
+      this.emit('imageClicked', img);
     });
   }
 

@@ -16,6 +16,10 @@ class ActionsController extends EventEmitter {
     }
 
     eventsHandler = () => {
+      this.fileController.on('createFile', () => {
+        this.emit('createFile');
+      });
+
       this.imagesController.on('imageClicked', (img) => {
         this.emit('imageClicked', img);
       });

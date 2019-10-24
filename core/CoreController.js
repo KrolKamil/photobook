@@ -22,6 +22,7 @@ class CoreController extends EventEmitter {
       // });
 
       this.optionsController.on('imageClicked', (img) => {
+        console.log(img);
         this.generateImage(img);
       });
     }
