@@ -1,10 +1,10 @@
-class FileController{
+class FileController {
     activate = () => {
-        //TO DO
+      // TO DO
     }
 
-    disable = () =>{
-        //TO DO
+    disable = () => {
+      // TO DO
     }
 }
 

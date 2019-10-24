@@ -72,6 +72,10 @@ class CardsView {
       const selectedCardIndex = this.cardIndex + 1;
       numberContainer.innerHTML = `${selectedCardIndex}/${this.amoutOfCards}`;
     }
+
+    getSelectedCardId = () => {
+      return this.selectedCardIndex();
+    }
 }
 
 export default CardsView;
