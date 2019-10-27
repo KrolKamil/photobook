@@ -1,10 +1,10 @@
 import { EventEmitter } from 'events';
-import ImagesView from './ImagesView';
+import StickersView from './StickersView';
 
-class ImagesController extends EventEmitter {
+class StickersController extends EventEmitter {
   constructor () {
     super();
-    this.imagesView = new ImagesView();
+    this.stickersView = new StickersView();
     this.activated = false;
     this.init();
   }
@@ -14,23 +14,24 @@ class ImagesController extends EventEmitter {
   }
 
   eventsHandler = () => {
-    this.imagesView.on('imageClicked', (img) => {
-      this.emit('imageClicked', img);
+    this.stickersView.on('stickerClicked', (sticker) => {
+      this.emit('stickerClicked', sticker);
     });
   }
 
     activate = () => {
       if (this.activated === false) {
         this.activated = true;
-        this.imagesView.activate();
+        this.stickersView.activate();
       }
     }
 
     disable = () => {
       if (this.activated === true) {
         this.activated = false;
-        this.imagesView.disable();
+        this.stickersView.disable();
       }
     }
 }
-export default ImagesController;
+
+export default StickersController;

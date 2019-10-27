@@ -5,7 +5,7 @@ class FileController extends EventEmitter {
   constructor () {
     super();
     this.fileView = new FileView();
-    this.activate = false;
+    this.activated = false;
     this.init();
   }
 
@@ -19,19 +19,19 @@ class FileController extends EventEmitter {
     });
   }
 
-    activate = () => {
-      if (this.active === false) {
-        this.activate = true;
-        this.fileView.activate();
-      }
+  activate = () => {
+    if (this.activated === false) {
+      this.activated = true;
+      this.fileView.activate();
     }
+  }
 
-      disable = () => {
-        if (this.active === true) {
-          this.activate = false;
-          this.fileView.disable();
-        }
-      }
+  disable = () => {
+    if (this.activated === true) {
+      this.activated = false;
+      this.fileView.disable();
+    }
+  }
 }
 
 export default FileController;

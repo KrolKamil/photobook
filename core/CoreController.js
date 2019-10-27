@@ -17,10 +17,6 @@ class CoreController extends EventEmitter {
     }
 
     eventHandler = () => {
-      // this.optionsController.on('menuSelected', (status) => {
-      //     this.option.activateAction(status);
-      // });
-
       this.optionsController.on('imageClicked', (img) => {
         console.log(img);
         this.generateImage(img);

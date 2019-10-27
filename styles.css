@@ -83,6 +83,12 @@ body{
     cursor: pointer;
 }
 
+.file-create-button {
+    width: 50px;
+    height: 28px;
+    background-color: red;
+}
+
 .content .cards {
     position: relative;
 }

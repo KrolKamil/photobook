@@ -24,7 +24,7 @@ class OptionsController extends EventEmitter {
       });
 
       this.menuController.on('menuSelected', (status) => {
-        this.actionsController.activateAction(status);
+        this.actionsController.selectAction(status);
       });
     }
 }

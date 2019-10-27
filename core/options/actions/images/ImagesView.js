@@ -54,7 +54,7 @@ class ImagesView extends EventEmitter {
     }
 
     disable = () => {
-      actionsContainer.remove();
+      this.container.remove();
     }
 }
 
