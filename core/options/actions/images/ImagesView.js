@@ -38,8 +38,9 @@ class ImagesView extends EventEmitter {
       const imagesContainer = this.container.querySelector('.images');
       const imagesContainerDestroyButton = image.querySelector('.image-container-delete');
       imagesContainer.addEventListener('click', this.userClickedOnImage);
-      imagesContainerDestroyButton.addEventListener('click', () => {
-        // remove img form dom
+      imagesContainerDestroyButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
         imagesContainer.removeChild(image);
       });
       imagesContainer.appendChild(image);
